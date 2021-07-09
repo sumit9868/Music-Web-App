@@ -9,8 +9,8 @@ import SpotifyWebApi from "spotify-web-api-js";
 const spotify = new SpotifyWebApi();
 
 function App() {
-
-  const [ {user , token} ,dispatch] = useDataLayerValue();
+// eslint-disable-next-line
+  const [ { user , token} ,dispatch] = useDataLayerValue();
 
   useEffect(() => {
     //Run code based on a given condition {
@@ -33,15 +33,14 @@ function App() {
           user: user,
         })
       });
-
     }
-  }, []);
+  }, );
   return (
-    <div className="App">
+    <div className="app">
 
       {
         token ? (
-          <Player/>
+          <Player spotify={spotify} />
         ) : (
           <Login />
         )
